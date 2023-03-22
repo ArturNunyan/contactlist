@@ -57,13 +57,16 @@ console.log(contactListArr);
 
       <form className='addContact' onSubmit={(e) => {
         e.preventDefault();
-        setContactListArr(prev => [ ...prev,
-            {
-              id: uuidv4(),
-              name: newName,
-              phoneNumber: newNumber
-            }]
-          )}}>
+        if (newName && newNumber && !isNaN(newNumber)) {
+          setContactListArr(prev => [ ...prev,
+              {
+                id: uuidv4(),
+                name: newName,
+                phoneNumber: newNumber
+              }]
+              )
+            }
+        }}>
 
         <input placeholder='name' onChange={(e) => {
           setNewName(e.target.value)
@@ -72,7 +75,6 @@ console.log(contactListArr);
         <input placeholder='phonenumber' onChange={(e) => {
            setNewNmber(e.target.value)
         }
-
         }/>
         <br/>
         <input type='submit' value='add' />  
