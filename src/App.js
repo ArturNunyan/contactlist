@@ -1,5 +1,5 @@
 import './App.css';
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 function App() {
@@ -17,19 +17,23 @@ const [contactListArr, setContactListArr] = useState([
        name: "Iron Man",
        phoneNumber: '099345678'},
        {id: uuidv4(),
-       name: "Aladdin",
-       phoneNumber: '099345678'},
-   ])
+        name: "Aladdin",
+        phoneNumber: '099345678'},
+      ])
 
-console.log(contactListArr);
+// console.log(contactListArr.length);
 
+
+
+document.title = `contactlist - ${contactListArr.length}`
+  
   let sortedArr =  contactListArr.sort((a, b) => {
     if (a.name > b.name) {
       return 1
     }if (a.name < b.name) {
       return -1
     }
-      return 0
+    return 0
   }).map((el) => {
     if (el.name.toLocaleLowerCase().includes(value.toLocaleLowerCase())) {
       return (
