@@ -39,6 +39,7 @@ document.title = `contactlist - ${contactListArr.length}`
       return (
         <li key = {el.id}>
           {el.name}
+          <button className='deleteButton' onClick={()=>{console.log(el.id)}}>X</button>
           <p><a href='#'>{el.phoneNumber}</a></p>
         </li>
       )

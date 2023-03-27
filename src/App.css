@@ -25,3 +25,7 @@ ul a{
 form input{
   margin: 10px;
 }
+
+.deleteButton {
+  margin-left: 20px;
+}
